@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowIndicator: {fileID: 2116000437}
   debug: 1
-  speed: 10
+  speed: 100
 --- !u!54 &39306122
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -249,8 +249,8 @@ Rigidbody:
   m_GameObject: {fileID: 39306120}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 2
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
