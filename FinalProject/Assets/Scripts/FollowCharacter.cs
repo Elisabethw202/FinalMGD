@@ -13,6 +13,7 @@ public class FollowCharacter : MonoBehaviour
     {
         startingPosition = this.transform.position;
         followDistance = player.transform.position.x - this.transform.position.x;
+        followDistance = player.transform.position.y - this.transform.position.y;
     }
 
     // Update is called once per frame
