@@ -17,6 +17,7 @@ public class MarbleMovement : MonoBehaviour
     Vector3 calibratedDir;
 
     public TextMeshProUGUI scoreText;
+    public GameObject JumpButton;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class MarbleMovement : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         Calibrate();
         startPos = this.transform.position;
+        JumpButton.SetActive(canJump);      // if we can jump, show the button
 
     }
 
@@ -90,6 +92,7 @@ public class MarbleMovement : MonoBehaviour
     void OnTriggerEnter (Collider other){
         if(other.gameObject.CompareTag("JumpPowerup")){
             canJump = true;
+            JumpButton.SetActive(canJump);
         }
         if(other.gameObject.CompareTag("LeBox")){
             score += 500;
