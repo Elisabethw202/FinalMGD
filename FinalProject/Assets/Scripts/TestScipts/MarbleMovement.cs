@@ -15,6 +15,8 @@ public class MarbleMovement : MonoBehaviour
     public bool debug = true;
     public float speed = 10;
     Vector3 calibratedDir;
+
+    public TextMeshProUGUI scoreText;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class MarbleMovement : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         Calibrate();
         startPos = this.transform.position;
+
     }
 
     // Update is called once per frame
@@ -68,17 +71,31 @@ public class MarbleMovement : MonoBehaviour
 
     public float jumpSpeed = 5f;
     public void Jump(){
-        if(isGrounded){
+        if(isGrounded && canJump){
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);}
 
     }
 
     bool isGrounded = true;
+    bool canJump = false;
     void OnCollisionEnter(){
         isGrounded = true;
     }
 
     void OnCollisionExit(){
         isGrounded = false;
+    }
+
+    public int score = 0;
+    void OnTriggerEnter (Collider other){
+        if(other.gameObject.CompareTag("JumpPowerup")){
+            canJump = true;
+        }
+        if(other.gameObject.CompareTag("LeBox")){
+            score += 500;
+            scoreText.text = "Score: " + score;
+            Destroy(other.gameObject);
+            // play audio(coin pikcup sound)
+        }
     }
 }
