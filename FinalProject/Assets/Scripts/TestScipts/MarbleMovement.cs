@@ -31,7 +31,7 @@ public class MarbleMovement : MonoBehaviour
         // Vector3 dir = Vector3.zero; // new Vector 3(0,0,0)l=;
 
         dir.x = Input.acceleration.x - calibratedDir.x;
-        dir.y = Input.acceleration.y - calibratedDir.z;
+        dir.z = Input.acceleration.y - calibratedDir.z;
         
 
         if(debug){

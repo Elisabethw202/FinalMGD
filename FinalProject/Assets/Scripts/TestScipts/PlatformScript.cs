@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlatformScript : MonoBehaviour
 {
     // add this to the platform
@@ -9,6 +10,9 @@ public class PlatformScript : MonoBehaviour
     // Start is called before the first frame update
 
     public float forceSpeed = 20;
+
+    public bool destroyAfterUse = false;
+
 
     Vector3 dir;
     void Start(){
@@ -18,6 +22,9 @@ public class PlatformScript : MonoBehaviour
         if(other.gameObject.CompareTag("Player")){
             if(other.gameObject.GetComponent<Rigidbody> () != null) {
                 other.gameObject.GetComponent<Rigidbody>().AddForce(dir * forceSpeed, ForceMode.Impulse);
+                if(destroyAfterUse){
+                    Destroy(this.gameObject, .25f);
+                }
             }
         }
     }
