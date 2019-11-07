@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\FollowCharacter.cs" />
      <Compile Include="Assets\Scripts\TestScipts\ColorChanger.cs" />
      <Compile Include="Assets\Scripts\TestScipts\MarbleMovement.cs" />
+     <Compile Include="Assets\Scripts\TestScipts\PlatformScript.cs" />
      <Compile Include="Assets\Scripts\TestScipts\TiltingPlatform.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

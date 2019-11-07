@@ -22,6 +22,7 @@ public class MarbleMovement : MonoBehaviour
         speed *= 1.5f;
         rb = this.GetComponent<Rigidbody>();
         Calibrate();
+        startPos = this.transform.position;
     }
 
     // Update is called once per frame
@@ -48,8 +49,18 @@ public class MarbleMovement : MonoBehaviour
     void LateUpdate(){
         arrowIndicator.rotation = Quaternion.LookRotation(dir, Vector3.up);
         Vector3 scale = Vector3.one;
-        scale.z = dir.magnitude;
+        scale.z = dir.magnitude * 2;
         arrowIndicator.localScale = scale * 2;
+
+        if(this.transform.position.y <=0){
+            RestartPosition();
+        }
+    }
+    Vector3 startPos;
+
+    void RestartPosition(){
+        this.transform.position = startPos;
+        rb.velocity = Vector3.zero;             // this stops all movement.
     }
     void FixedUpdate() {
         rb.AddForce(dir * speed);
