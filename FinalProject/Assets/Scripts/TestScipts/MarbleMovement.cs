@@ -54,4 +54,20 @@ public class MarbleMovement : MonoBehaviour
     void FixedUpdate() {
         rb.AddForce(dir * speed);
     }
+
+    public float jumpSpeed = 5f;
+    public void Jump(){
+        if(isGrounded){
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);}
+
+    }
+
+    bool isGrounded = true;
+    void OnCollisionEnter(){
+        isGrounded = true;
+    }
+
+    void OnCollisionExit(){
+        isGrounded = false;
+    }
 }
