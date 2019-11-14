@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LeBox
   - JumpPowerup
+  - Music
+  - CustomCam
   layers:
   - Default
   - TransparentFX

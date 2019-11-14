@@ -28,13 +28,22 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         aud = this.GetComponent<AudioSource>();
+        aud.clip = songs[0];
+        aud.Play();
         
     }
 
+    public bool debug = true;
     // Update is called once per frame
     void Update()
     {
-        
+        if(debug){
+            if(Input.GetKeyDown(KeyCode.Alpha9)){
+                Debug.Log("Starting next level!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                StartCoroutine(StartNextLevel());
+            }
+        }
     }
     
     public IEnumerator StartNextLevel(){
@@ -54,7 +63,7 @@ public class MusicManager : MonoBehaviour
             aud.Play();
         }
          else if (currentIndex == world3Index){
-            aud.clip = songs[2];
+            aud.clip = songs[3];
             aud.Play();
         }
     }

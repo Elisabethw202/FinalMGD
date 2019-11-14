@@ -26,7 +26,8 @@ public class MarbleMovement : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         Calibrate();
         startPos = this.transform.position;
-        JumpButton.SetActive(canJump);      // if we can jump, show the button
+        JumpButton.SetActive(canJump); 
+        // mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();     // if we can jump, show the button
 
     }
 
@@ -89,6 +90,7 @@ public class MarbleMovement : MonoBehaviour
     }
 
     public int score = 0;
+    private Camera mainCam;
     void OnTriggerEnter (Collider other){
         if(other.gameObject.CompareTag("JumpPowerup")){
             canJump = true;
@@ -99,6 +101,16 @@ public class MarbleMovement : MonoBehaviour
             scoreText.text = "Score: " + score;
             Destroy(other.gameObject);
             // play audio(coin pikcup sound)
+        }
+        if (other.gameObject.CompareTag("CustomCam")){
+            mainCam.gameObject.SetActive(false);
+            other.transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+    void OnTriggerExit(Collider other){
+        if(other.gameObject.CompareTag("CustomCam")){
+            mainCam.gameObject.SetActive(true);
+            other.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }
