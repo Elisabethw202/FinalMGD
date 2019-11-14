@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MusicManager.cs" />
      <Compile Include="Assets\Scripts\FollowCharacter.cs" />
      <Compile Include="Assets\Scripts\TestScipts\ColorChanger.cs" />
      <Compile Include="Assets\Scripts\TestScipts\MarbleMovement.cs" />
