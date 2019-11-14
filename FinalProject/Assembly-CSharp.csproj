@@ -63,6 +63,7 @@
      <Compile Include="Assets\MusicManager.cs" />
      <Compile Include="Assets\Scripts\FollowCharacter.cs" />
      <Compile Include="Assets\Scripts\Joystickcoding.cs" />
+     <Compile Include="Assets\Scripts\Teleport.cs" />
      <Compile Include="Assets\Scripts\TestScipts\ColorChanger.cs" />
      <Compile Include="Assets\Scripts\TestScipts\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\TestScipts\MarbleMovement.cs" />
